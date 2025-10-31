@@ -4,6 +4,7 @@ import ImageRevealer from './ImageRevealer';
 import FunFactPopup from './FunFactPopup';
 import HintBox from './HintBox';
 import { useAudio } from '../App';
+import VolumeControl from './VolumeControl';
 
 interface GameScreenProps {
   question: DinosaurQuestion;
@@ -106,7 +107,8 @@ const GameScreen: React.FC<GameScreenProps> = ({ question, onAnswer, roundNumber
       </div>
 
       <div className="mt-6">
-        <div className="flex justify-center mb-3">
+        <div className="flex justify-between items-center mb-3">
+            <VolumeControl />
             <button
               onClick={handleHintClick}
               disabled={showHint || isAnswered}

@@ -52,6 +52,7 @@ const ImageRevealer: React.FC<ImageRevealerProps> = ({ imageUrl, dinosaurName, d
       <img
         src={currentImageUrl}
         alt={`A dinosaur: ${dinosaurName}`}
+        referrerPolicy="no-referrer"
         className={`w-full h-full object-cover transition-all ease-out ${
           isImageLoaded ? 'opacity-100' : 'opacity-0'
         } ${

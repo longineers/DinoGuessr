@@ -30,6 +30,7 @@ const AudioProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
   const [volume, setVolumeState] = useState(1.0);
   const audioCtxRef = useRef<AudioContext | null>(null);
   const gainNodeRef = useRef<GainNode | null>(null);
+  const activeSourcesRef = useRef<Set<AudioScheduledSourceNode>>(new Set());
 
   // Initialize audio context on first user interaction
   const initAudio = useCallback(() => {
@@ -65,6 +66,21 @@ const AudioProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
     }
   }, []);
   
+  const stopAllSounds = useCallback(() => {
+    if (!audioCtxRef.current) return;
+    const now = audioCtxRef.current.currentTime;
+    for (const source of activeSourcesRef.current) {
+      // stop() will trigger the 'onended' event for each source,
+      // which handles disconnection and cleanup.
+      try {
+        source.stop(now);
+      } catch (e) {
+        // Ignore errors if the source was already stopped or is in an invalid state.
+      }
+    }
+    activeSourcesRef.current.clear();
+  }, []);
+
   const playSound = useCallback((type: SoundType) => {
     initAudio();
     if (!audioCtxRef.current || !gainNodeRef.current) return;
@@ -72,12 +88,21 @@ const AudioProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
     if (audioCtxRef.current.state === 'suspended') {
       audioCtxRef.current.resume();
     }
+    
+    // Stop any previously playing sounds to prevent overlap.
+    stopAllSounds();
 
     const now = audioCtxRef.current.currentTime;
     
     switch (type) {
       case 'start': {
         const oscillator = audioCtxRef.current.createOscillator();
+        activeSourcesRef.current.add(oscillator);
+        oscillator.onended = () => {
+          activeSourcesRef.current.delete(oscillator);
+          oscillator.disconnect();
+        };
+
         oscillator.connect(gainNodeRef.current);
         oscillator.type = 'sine';
         oscillator.frequency.setValueAtTime(261.63, now); // C4
@@ -89,6 +114,13 @@ const AudioProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
       case 'transition': {
         const osc = audioCtxRef.current.createOscillator();
         const transitionGain = audioCtxRef.current.createGain();
+        activeSourcesRef.current.add(osc);
+        osc.onended = () => {
+          activeSourcesRef.current.delete(osc);
+          osc.disconnect();
+          transitionGain.disconnect();
+        };
+        
         osc.connect(transitionGain);
         transitionGain.connect(gainNodeRef.current);
         osc.type = 'sawtooth';
@@ -103,6 +135,13 @@ const AudioProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
       case 'correct': {
         const osc = audioCtxRef.current.createOscillator();
         const noteGain = audioCtxRef.current.createGain();
+        activeSourcesRef.current.add(osc);
+        osc.onended = () => {
+          activeSourcesRef.current.delete(osc);
+          osc.disconnect();
+          noteGain.disconnect();
+        };
+
         osc.connect(noteGain);
         noteGain.connect(gainNodeRef.current);
         osc.type = 'triangle';
@@ -118,6 +157,12 @@ const AudioProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
       }
       case 'incorrect': {
         const osc = audioCtxRef.current.createOscillator();
+        activeSourcesRef.current.add(osc);
+        osc.onended = () => {
+          activeSourcesRef.current.delete(osc);
+          osc.disconnect();
+        };
+        
         osc.connect(gainNodeRef.current);
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(164.81, now); // E3
@@ -127,7 +172,7 @@ const AudioProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
         break;
       }
     }
-  }, [initAudio]);
+  }, [initAudio, stopAllSounds]);
   
   const value = { playSound, volume, setVolume };
 
@@ -228,7 +273,11 @@ const AppContent: React.FC = () => {
   return (
     <main className="h-screen w-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 overflow-hidden">
       <div className="relative h-full w-full max-w-lg mx-auto">
-        <VolumeControl />
+        {(gameState === 'START' || gameState === 'FINISHED') && (
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
+            <VolumeControl />
+          </div>
+        )}
         {renderContent()}
       </div>
     </main>
