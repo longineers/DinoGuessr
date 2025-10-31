@@ -1,0 +1,5 @@
+{
+  "name": "Dino Guessr",
+  "description": "A fun and colorful mobile game where you guess the name of a dinosaur from a slowly revealed picture. Test your knowledge across 7 rounds and see your score and time.",
+  "requestFramePermissions": []
+}
