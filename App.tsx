@@ -273,11 +273,6 @@ const AppContent: React.FC = () => {
   return (
     <main className="h-screen w-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 overflow-hidden">
       <div className="relative h-full w-full max-w-lg mx-auto">
-        {(gameState === 'START' || gameState === 'FINISHED') && (
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
-            <VolumeControl />
-          </div>
-        )}
         {renderContent()}
       </div>
     </main>

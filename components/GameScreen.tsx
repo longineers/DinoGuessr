@@ -23,6 +23,7 @@ const LightbulbIcon: React.FC = () => (
   );
 
 const GameScreen: React.FC<GameScreenProps> = ({ question, onAnswer, roundNumber, totalRounds, score, difficulty }) => {
+  console.log('question:', question);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [showFunFact, setShowFunFact] = useState(false);
@@ -102,7 +103,6 @@ const GameScreen: React.FC<GameScreenProps> = ({ question, onAnswer, roundNumber
         <ImageRevealer 
           imageUrl={question.imageUrl}
           dinosaurName={question.correctAnswer} 
-          difficulty={difficulty} 
         />
       </div>
 

@@ -25,8 +25,19 @@ const shuffleArray = <T>(array: T[]): T[] => {
 };
 
 export const fetchDinosaurQuiz = (difficulty: Difficulty): QuizData => {
-  const numOptions = 3;
-  const totalQuestions = 5;
+  const optionsMap = {
+    easy: 2,
+    medium: 3,
+    hard: 4,
+  };
+  const numOptions = optionsMap[difficulty];
+
+  const questionsMap = {
+    easy: 5,
+    medium: 7,
+    hard: 10,
+  };
+  const totalQuestions = questionsMap[difficulty];
 
   const selectedDinos = shuffleArray(dinoNames).slice(0, totalQuestions);
 

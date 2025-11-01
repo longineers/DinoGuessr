@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Difficulty } from '../types';
+import VolumeControl from './VolumeControl';
 
 const DinoHeadIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -52,6 +53,9 @@ const StartScreen: React.FC<StartScreenProps> = ({ onStart }) => {
       </p>
       
       <div className="mb-8">
+        <div className="flex justify-center items-center mb-3">
+          <VolumeControl />
+        </div>
         <p className="text-slate-300 mb-3 font-bold text-lg">Select Difficulty:</p>
         <div className="flex justify-center items-center gap-3 bg-slate-800 p-2 rounded-xl">
           {difficultyOptions.map(({ id, label }) => (
