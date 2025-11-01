@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, createContext, useContext, useRef } from 'react';
-import { fetchDinosaurQuiz } from './services/geminiService';
+import { fetchDinosaurQuiz } from './services/dataService';
 import { QuizData, Difficulty } from './types';
 import StartScreen from './components/StartScreen';
 import GameScreen from './components/GameScreen';
@@ -199,15 +199,15 @@ const AppContent: React.FC = () => {
     }
   }, []);
 
-  const loadQuiz = useCallback(async (selectedDifficulty: Difficulty) => {
+  const loadQuiz = (selectedDifficulty: Difficulty) => {
     setGameState('LOADING');
-    const data = await fetchDinosaurQuiz(selectedDifficulty);
+    const data = fetchDinosaurQuiz(selectedDifficulty);
     setQuizData(data);
     setCurrentRound(0);
     setScore(0);
     setTimeRecords([]);
     setGameState('PLAYING');
-  }, []);
+  };
 
   const handleStart = (selectedDifficulty: Difficulty) => {
     setDifficulty(selectedDifficulty);

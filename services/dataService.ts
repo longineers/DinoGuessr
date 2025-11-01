@@ -1,0 +1,46 @@
+import { QuizData, Difficulty, DinosaurQuestion } from '../types';
+
+const dinoImageMap: { [key: string]: string } = {
+  "Tyrannosaurus Rex": "/assets/Tyrannosaurus Rex.jpg",
+  "Velociraptor": "/assets/Velociraptor.jpg",
+  "Stegosaurus": "/assets/Stegosaurus.jpg",
+  "Triceratops": "/assets/Triceratops.jpg",
+  "Brachiosaurus": "/assets/Brachiosaurus.jpg",
+  "Ankylosaurus": "/assets/Ankylosaurus.jpg",
+  "Spinosaurus": "/assets/Spinosaurus.jpg",
+  "Allosaurus": "/assets/Allosaurus.jpg",
+  "Apatosaurus": "/assets/Apatosaurus.jpg",
+  "Diplodocus": "/assets/Diplodocus.jpg",
+};
+
+const dinoNames = Object.keys(dinoImageMap);
+
+const shuffleArray = <T>(array: T[]): T[] => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
+export const fetchDinosaurQuiz = (difficulty: Difficulty): QuizData => {
+  const numOptions = 3;
+  const totalQuestions = 5;
+
+  const selectedDinos = shuffleArray(dinoNames).slice(0, totalQuestions);
+
+  const questions: DinosaurQuestion[] = selectedDinos.map(correctDinoName => {
+    const wrongAnswers = dinoNames.filter(name => name !== correctDinoName);
+    const options = [correctDinoName, ...shuffleArray(wrongAnswers).slice(0, numOptions - 1)];
+    return {
+      correctAnswer: correctDinoName,
+      options: shuffleArray(options),
+      funFact: `This is a fun fact about ${correctDinoName}`,
+      imageUrl: dinoImageMap[correctDinoName],
+      hint: `This is a hint about ${correctDinoName}`
+    }
+  });
+
+  return { questions };
+};

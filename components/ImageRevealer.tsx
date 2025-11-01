@@ -42,6 +42,7 @@ const ImageRevealer: React.FC<ImageRevealerProps> = ({ imageUrl, dinosaurName, d
     if (currentImageUrl !== placeholderUrl) {
       setCurrentImageUrl(placeholderUrl);
     }
+    setIsImageLoaded(true); // Ensure the spinner is hidden even on error
   };
 
   return (
