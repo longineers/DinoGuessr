@@ -233,6 +233,11 @@ const AppContent: React.FC = () => {
     }
   };
 
+  const handleBackToHome = () => {
+    playSound('start');
+    setGameState('START');
+  };
+
   const renderContent = () => {
     switch (gameState) {
       case 'START':
@@ -263,6 +268,7 @@ const AppContent: React.FC = () => {
             totalQuestions={quizData?.questions.length || 0}
             timeRecords={timeRecords}
             onPlayAgain={handlePlayAgain}
+            onBackToHome={handleBackToHome}
           />
         );
       default:

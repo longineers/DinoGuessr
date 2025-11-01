@@ -6,9 +6,10 @@ interface EndScreenProps {
   totalQuestions: number;
   timeRecords: number[];
   onPlayAgain: () => void;
+  onBackToHome: () => void;
 }
 
-const EndScreen: React.FC<EndScreenProps> = ({ score, totalQuestions, timeRecords, onPlayAgain }) => {
+const EndScreen: React.FC<EndScreenProps> = ({ score, totalQuestions, timeRecords, onPlayAgain, onBackToHome }) => {
   const totalTime = timeRecords.reduce((acc, time) => acc + time, 0);
   const averageTime = timeRecords.length > 0 ? (totalTime / timeRecords.length).toFixed(2) : '0.00';
 
@@ -33,9 +34,16 @@ const EndScreen: React.FC<EndScreenProps> = ({ score, totalQuestions, timeRecord
 
       <button
         onClick={onPlayAgain}
-        className="w-full max-w-xs px-8 py-4 bg-emerald-500 text-white font-bold text-xl rounded-xl shadow-lg hover:bg-emerald-600 active:bg-emerald-700 transform hover:scale-105 transition-all duration-300"
+        className="w-full max-w-xs px-8 py-4 bg-emerald-500 text-white font-bold text-xl rounded-xl shadow-lg hover:bg-emerald-600 active:bg-emerald-700 transform hover:scale-105 transition-all duration-300 mb-4"
       >
         Play Again
+      </button>
+
+      <button
+        onClick={onBackToHome}
+        className="w-full max-w-xs px-8 py-4 bg-slate-700 text-white font-bold text-xl rounded-xl shadow-lg hover:bg-slate-600 active:bg-slate-700 transform hover:scale-105 transition-all duration-300"
+      >
+        Back to Home
       </button>
     </div>
   );
