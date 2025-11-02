@@ -1,19 +1,7 @@
 import { QuizData, Difficulty, DinosaurQuestion } from '../types';
+import dinosaurs from '../assets/dinosaurs.json';
 
-const dinoImageMap: { [key: string]: string } = {
-  "Tyrannosaurus Rex": "/assets/Tyrannosaurus Rex.jpg",
-  "Velociraptor": "/assets/Velociraptor.jpg",
-  "Stegosaurus": "/assets/Stegosaurus.jpg",
-  "Triceratops": "/assets/Triceratops.jpg",
-  "Brachiosaurus": "/assets/Brachiosaurus.jpg",
-  "Ankylosaurus": "/assets/Ankylosaurus.jpg",
-  "Spinosaurus": "/assets/Spinosaurus.jpg",
-  "Allosaurus": "/assets/Allosaurus.jpg",
-  "Apatosaurus": "/assets/Apatosaurus.jpg",
-  "Diplodocus": "/assets/Diplodocus.jpg",
-};
-
-const dinoNames = Object.keys(dinoImageMap);
+const dinoNames = dinosaurs.map(dino => dino.name);
 
 const shuffleArray = <T>(array: T[]): T[] => {
   const newArray = [...array];
@@ -55,10 +43,12 @@ export const fetchDinosaurQuiz = async (difficulty: Difficulty): Promise<QuizDat
   const questions: DinosaurQuestion[] = selectedDinos.map(correctDinoName => {
     const wrongAnswers = dinoNames.filter(name => name !== correctDinoName);
     const options = [correctDinoName, ...shuffleArray(wrongAnswers).slice(0, numOptions - 1)];
+    const dinoData = dinosaurs.find(dino => dino.name === correctDinoName);
+
     return {
       correctAnswer: correctDinoName,
       options: shuffleArray(options),
-      imageUrl: dinoImageMap[correctDinoName],
+      imageUrl: dinoData ? dinoData.image : '',
       hint: hints[correctDinoName] || `This is a hint about ${correctDinoName}`
     }
   });

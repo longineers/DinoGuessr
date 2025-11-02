@@ -1,0 +1,43 @@
+
+[
+  {
+    "name": "Tyrannosaurus Rex",
+    "image": "/assets/Tyrannosaurus Rex.jpg"
+  },
+  {
+    "name": "Velociraptor",
+    "image": "/assets/Velociraptor.jpg"
+  },
+  {
+    "name": "Stegosaurus",
+    "image": "/assets/Stegosaurus.jpg"
+  },
+  {
+    "name": "Triceratops",
+    "image": "/assets/Triceratops.jpg"
+  },
+  {
+    "name": "Brachiosaurus",
+    "image": "/assets/Brachiosaurus.jpg"
+  },
+  {
+    "name": "Ankylosaurus",
+    "image": "/assets/Ankylosaurus.jpg"
+  },
+  {
+    "name": "Spinosaurus",
+    "image": "/assets/Spinosaurus.jpg"
+  },
+  {
+    "name": "Allosaurus",
+    "image": "/assets/Allosaurus.jpg"
+  },
+  {
+    "name": "Apatosaurus",
+    "image": "/assets/Apatosaurus.jpg"
+  },
+  {
+    "name": "Diplodocus",
+    "image": "/assets/Diplodocus.jpg"
+  }
+]

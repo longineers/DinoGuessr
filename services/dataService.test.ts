@@ -51,4 +51,20 @@ describe('fetchDinosaurQuiz', () => {
     const uniqueAnswers = new Set(correctAnswers);
     expect(uniqueAnswers.size).toBe(quiz.questions.length);
   });
+
+  it('should have a valid image url for each question', async () => {
+    const quiz = await fetchDinosaurQuiz('hard');
+    quiz.questions.forEach(question => {
+      expect(question.imageUrl).toBeDefined();
+      expect(question.imageUrl.length).toBeGreaterThan(0);
+    });
+  });
+
+  it('should populate the hint property with a non-empty string', async () => {
+    const quiz = await fetchDinosaurQuiz('easy');
+    quiz.questions.forEach(question => {
+      expect(question.hint).toBeDefined();
+      expect(question.hint.length).toBeGreaterThan(0);
+    });
+  });
 });
