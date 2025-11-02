@@ -58,7 +58,6 @@ export const fetchDinosaurQuiz = async (difficulty: Difficulty): Promise<QuizDat
     return {
       correctAnswer: correctDinoName,
       options: shuffleArray(options),
-      funFact: `This is a fun fact about ${correctDinoName}`,
       imageUrl: dinoImageMap[correctDinoName],
       hint: hints[correctDinoName] || `This is a hint about ${correctDinoName}`
     }

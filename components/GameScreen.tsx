@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { DinosaurQuestion, Difficulty } from '../types';
 import ImageRevealer from './ImageRevealer';
-import FunFactPopup from './FunFactPopup';
 import HintBox from './HintBox';
 import { useAudio } from '../App';
 import VolumeControl from './VolumeControl';
@@ -12,7 +11,6 @@ interface GameScreenProps {
   roundNumber: number;
   totalRounds: number;
   score: number;
-  difficulty: Difficulty;
 }
 
 const LightbulbIcon: React.FC = () => (
@@ -22,11 +20,10 @@ const LightbulbIcon: React.FC = () => (
     </svg>
   );
 
-const GameScreen: React.FC<GameScreenProps> = ({ question, onAnswer, roundNumber, totalRounds, score, difficulty }) => {
+const GameScreen: React.FC<GameScreenProps> = ({ question, onAnswer, roundNumber, totalRounds, score }) => {
   console.log('question:', question);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
-  const [showFunFact, setShowFunFact] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const startTime = useRef<number>(Date.now());
   const { playSound } = useAudio();
@@ -35,7 +32,6 @@ const GameScreen: React.FC<GameScreenProps> = ({ question, onAnswer, roundNumber
     // Reset state for new round
     setSelectedAnswer(null);
     setIsAnswered(false);
-    setShowFunFact(false);
     setShowHint(false);
     startTime.current = Date.now();
 
@@ -52,10 +48,6 @@ const GameScreen: React.FC<GameScreenProps> = ({ question, onAnswer, roundNumber
     const isCorrect = option === question.correctAnswer;
     
     playSound(isCorrect ? 'correct' : 'incorrect');
-
-    if (isCorrect) {
-      setShowFunFact(true);
-    }
 
     setIsAnswered(true);
     setSelectedAnswer(option);
@@ -136,7 +128,7 @@ const GameScreen: React.FC<GameScreenProps> = ({ question, onAnswer, roundNumber
         </div>
       </div>
       
-      <FunFactPopup fact={question.funFact} isVisible={showFunFact} />
+
     </div>
   );
 };

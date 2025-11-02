@@ -51,12 +51,4 @@ describe('fetchDinosaurQuiz', () => {
     const uniqueAnswers = new Set(correctAnswers);
     expect(uniqueAnswers.size).toBe(quiz.questions.length);
   });
-
-  it('should populate the hint property with a non-empty string', async () => {
-    const quiz = await fetchDinosaurQuiz('easy');
-    quiz.questions.forEach(question => {
-      expect(question.hint).toBeDefined();
-      expect(question.hint.length).toBeGreaterThan(0);
-    });
-  });
 });

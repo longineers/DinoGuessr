@@ -258,7 +258,6 @@ const AppContent: React.FC = () => {
             roundNumber={currentRound + 1}
             totalRounds={quizData.questions.length}
             score={score}
-            difficulty={difficulty}
           />
         );
       case 'FINISHED':
