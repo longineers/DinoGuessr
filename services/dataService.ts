@@ -24,7 +24,7 @@ const shuffleArray = <T>(array: T[]): T[] => {
   return newArray;
 };
 
-export const fetchDinosaurQuiz = (difficulty: Difficulty): QuizData => {
+export const fetchDinosaurQuiz = async (difficulty: Difficulty): Promise<QuizData> => {
   const optionsMap = {
     easy: 2,
     medium: 3,
@@ -41,6 +41,17 @@ export const fetchDinosaurQuiz = (difficulty: Difficulty): QuizData => {
 
   const selectedDinos = shuffleArray(dinoNames).slice(0, totalQuestions);
 
+  const hints: { [key: string]: string } = {};
+  try {
+    const response = await fetch('https://dinosaur-facts-api.shultzlab.com/dinosaurs');
+    const data = await response.json();
+    data.forEach((dino: { Name: string; Description: string }) => {
+      hints[dino.Name] = dino.Description;
+    });
+  } catch (error) {
+    console.error("Error fetching hints from API, using fallback hints:", error);
+  }
+
   const questions: DinosaurQuestion[] = selectedDinos.map(correctDinoName => {
     const wrongAnswers = dinoNames.filter(name => name !== correctDinoName);
     const options = [correctDinoName, ...shuffleArray(wrongAnswers).slice(0, numOptions - 1)];
@@ -49,7 +60,7 @@ export const fetchDinosaurQuiz = (difficulty: Difficulty): QuizData => {
       options: shuffleArray(options),
       funFact: `This is a fun fact about ${correctDinoName}`,
       imageUrl: dinoImageMap[correctDinoName],
-      hint: `This is a hint about ${correctDinoName}`
+      hint: hints[correctDinoName] || `This is a hint about ${correctDinoName}`
     }
   });
 

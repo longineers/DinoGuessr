@@ -199,9 +199,9 @@ const AppContent: React.FC = () => {
     }
   }, []);
 
-  const loadQuiz = (selectedDifficulty: Difficulty) => {
+  const loadQuiz = async (selectedDifficulty: Difficulty) => {
     setGameState('LOADING');
-    const data = fetchDinosaurQuiz(selectedDifficulty);
+    const data = await fetchDinosaurQuiz(selectedDifficulty);
     setQuizData(data);
     setCurrentRound(0);
     setScore(0);
