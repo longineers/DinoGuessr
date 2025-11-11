@@ -70,6 +70,21 @@ The application is structured into several components:
     npm run preview
     ```
 
+## Dockerization
+
+The application can be run using Docker.
+
+1.  **Build the Docker image:**
+    ```bash
+    docker build -t dinoguessr .
+    ```
+
+2.  **Run the Docker container:**
+    ```bash
+    docker run -p 8080:80 dinoguessr
+    ```
+    Once the container is running, you can access the application by opening your web browser and navigating to `http://localhost:8080`.
+
 ## Adding New Dinosaurs
 
 Adding new dinosaurs to the game is a straightforward process:
