@@ -1,6 +1,3 @@
-
-
-
 # DinoGuessr
 
 DinoGuessr is a web-based dinosaur guessing game designed to test your knowledge of the prehistoric world. Players are presented with an image of a dinosaur and must select the correct name from a list of multiple-choice options. The game is built with React, TypeScript, and Vite, and features a clean, modern interface.
