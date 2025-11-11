@@ -25,6 +25,17 @@ DinoGuessr is a web-based dinosaur guessing game designed to test your knowledge
 -   **Hints:** Use hints to help you identify the dinosaur if you get stuck.
 -   **Sound Effects:** Enjoy a more immersive experience with sound effects for correct and incorrect answers.
 
+## Game Screenshots
+
+### Main Screen
+![Main Screen](/assets/screenshots/MainScreen.png)
+
+### Play Screen
+![Play Screen](/assets/screenshots/PlayScreen.png)
+
+### Final Screen
+![Final Screen](/assets/screenshots/FinalScreen.png)
+
 ## Main Technologies
 
 -   **Frontend:** React, TypeScript
