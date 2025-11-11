@@ -76,6 +76,11 @@ const StartScreen: React.FC<StartScreenProps> = ({ onStart }) => {
       >
         Start Game
       </button>
+
+      <footer className="absolute bottom-4 text-slate-400 text-sm">
+        Made by <a href="https://github.com/longineers" target="_blank" rel="noopener noreferrer" className="underline hover:text-teal-400">longineers</a>. 
+        View the <a href="https://github.com/longineers/DinoGuessr" target="_blank" rel="noopener noreferrer" className="underline hover:text-teal-400">source code</a>.
+      </footer>
     </div>
   );
 };
