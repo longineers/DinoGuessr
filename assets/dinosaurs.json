@@ -1,4 +1,3 @@
-
 [
   {
     "name": "Tyrannosaurus Rex",
@@ -39,5 +38,205 @@
   {
     "name": "Diplodocus",
     "image": "/assets/Diplodocus.jpg"
+  },
+  {
+    "name": "Archaeopteryx",
+    "image": "/assets/Archaeopteryx.jpg"
+  },
+  {
+    "name": "Iguanodon",
+    "image": "/assets/Iguanodon.jpg"
+  },
+  {
+    "name": "Parasaurolophus",
+    "image": "/assets/Parasaurolophus.jpg"
+  },
+  {
+    "name": "Pterodactyl",
+    "image": "/assets/Pterodactyl.jpg"
+  },
+  {
+    "name": "Compsognathus",
+    "image": "/assets/Compsognathus.jpg"
+  },
+  {
+    "name": "Dilophosaurus",
+    "image": "/assets/Dilophosaurus.jpg"
+  },
+  {
+    "name": "Gallimimus",
+    "image": "/assets/Gallimimus.jpg"
+  },
+  {
+    "name": "Giganotosaurus",
+    "image": "/assets/Giganotosaurus.jpg"
+  },
+  {
+    "name": "Maiasaura",
+    "image": "/assets/Maiasaura.jpg"
+  },
+  {
+    "name": "Oviraptor",
+    "image": "/assets/Oviraptor.jpg"
+  },
+  {
+    "name": "Pachycephalosaurus",
+    "image": "/assets/Pachycephalosaurus.jpg"
+  },
+  {
+    "name": "Quetzalcoatlus",
+    "image": "/assets/Quetzalcoatlus.jpg"
+  },
+  {
+    "name": "Styracosaurus",
+    "image": "/assets/Styracosaurus.jpg"
+  },
+  {
+    "name": "Baryonyx",
+    "image": "/assets/Baryonyx.jpg"
+  },
+  {
+    "name": "Carnotaurus",
+    "image": "/assets/Carnotaurus.jpg"
+  },
+  {
+    "name": "Deinonychus",
+    "image": "/assets/Deinonychus.jpg"
+  },
+  {
+    "name": "Edmontosaurus",
+    "image": "/assets/Edmontosaurus.jpg"
+  },
+  {
+    "name": "Hadrosaurus",
+    "image": "/assets/Hadrosaurus.jpg"
+  },
+  {
+    "name": "Kentrosaurus",
+    "image": "/assets/Kentrosaurus.jpg"
+  },
+  {
+    "name": "Megalosaurus",
+    "image": "/assets/Megalosaurus.jpg"
+  },
+  {
+    "name": "Microraptor",
+    "image": "/assets/Microraptor.jpg"
+  },
+  {
+    "name": "Ouranosaurus",
+    "image": "/assets/Ouranosaurus.jpg"
+  },
+  {
+    "name": "Plateosaurus",
+    "image": "/assets/Plateosaurus.jpg"
+  },
+  {
+    "name": "Protoceratops",
+    "image": "/assets/Protoceratops.jpg"
+  },
+  {
+    "name": "Saltasaurus",
+    "image": "/assets/Saltasaurus.jpg"
+  },
+  {
+    "name": "Therizinosaurus",
+    "image": "/assets/Therizinosaurus.jpg"
+  },
+  {
+    "name": "Troodon",
+    "image": "/assets/Troodon.jpg"
+  },
+  {
+    "name": "Utahraptor",
+    "image": "/assets/Utahraptor.jpg"
+  },
+  {
+    "name": "Argentinosaurus",
+    "image": "/assets/Argentinosaurus.jpg"
+  },
+  {
+    "name": "Ceratosaurus",
+    "image": "/assets/Ceratosaurus.jpg"
+  },
+  {
+    "name": "Coelophysis",
+    "image": "/assets/Coelophysis.jpg"
+  },
+  {
+    "name": "Corythosaurus",
+    "image": "/assets/Corythosaurus.jpg"
+  },
+  {
+    "name": "Cryolophosaurus",
+    "image": "/assets/Cryolophosaurus.jpg"
+  },
+  {
+    "name": "Dimetrodon",
+    "image": "/assets/Dimetrodon.jpg"
+  },
+  {
+    "name": "Dracorex",
+    "image": "/assets/Dracorex.jpg"
+  },
+  {
+    "name": "Eoraptor",
+    "image": "/assets/Eoraptor.jpg"
+  },
+  {
+    "name": "Gastonia",
+    "image": "/assets/Gastonia.jpg"
+  },
+  {
+    "name": "Herrerasaurus",
+    "image": "/assets/Herrerasaurus.jpg"
+  },
+  {
+    "name": "Hypsilophodon",
+    "image": "/assets/Hypsilophodon.jpg"
+  },
+  {
+    "name": "Irritator",
+    "image": "/assets/Irritator.jpg"
+  },
+  {
+    "name": "Jaxartosaurus",
+    "image": "/assets/Jaxartosaurus.jpg"
+  },
+  {
+    "name": "Khaan",
+    "image": "/assets/Khaan.jpg"
+  },
+  {
+    "name": "Lambeosaurus",
+    "image": "/assets/Lambeosaurus.jpg"
+  },
+  {
+    "name": "Lesothosaurus",
+    "image": "/assets/Lesothosaurus.jpg"
+  },
+  {
+    "name": "Mamenchisaurus",
+    "image": "/assets/Mamenchisaurus.jpg"
+  },
+  {
+    "name": "Minmi",
+    "image": "/assets/Minmi.jpg"
+  },
+  {
+    "name": "Nothronychus",
+    "image": "/assets/Nothronychus.jpg"
+  },
+  {
+    "name": "Ornithomimus",
+    "image": "/assets/Ornithomimus.jpg"
+  },
+  {
+    "name": "Pachyrhinosaurus",
+    "image": "/assets/Pachyrhinosaurus.jpg"
+  },
+  {
+    "name": "Pentaceratops",
+    "image": "/assets/Pentaceratops.jpg"
   }
 ]
