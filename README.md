@@ -74,6 +74,12 @@ The application's source code is located in the `src/` directory and is structur
 
 The application can be run using Docker.
 
+To build and run the Docker container with a single command:
+```bash
+npm run docker:run
+```
+Alternatively, you can perform the steps manually:
+
 1.  **Build the Docker image:**
     ```bash
     docker build -t dinoguessr .

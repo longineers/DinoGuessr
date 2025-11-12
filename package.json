@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "docker:run": "npm run build && docker build -t dinoguessr . && docker run -p 8080:80 dinoguessr"
   },
   "dependencies": {
     "react": "^19.2.0",
