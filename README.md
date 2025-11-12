@@ -23,13 +23,13 @@ DinoGuessr is a web-based dinosaur guessing game designed to test your knowledge
 ## Game Screenshots
 
 ### Main Screen
-![Main Screen](src/assets/screenshots/MainScreen.png)
+![Main Screen](public/assets/screenshots/MainScreen.png)
 
 ### Play Screen
-![Play Screen](src/assets/screenshots/PlayScreen.png)
+![Play Screen](public/assets/screenshots/PlayScreen.png)
 
 ### Final Screen
-![Final Screen](src/assets/screenshots/FinalScreen.png)
+![Final Screen](public/assets/screenshots/FinalScreen.png)
 
 ## Main Technologies
 
