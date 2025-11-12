@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Difficulty } from '../types';
-import VolumeControl from './VolumeControl';
+import { Difficulty } from '../../types';
+import VolumeControl from '../common/VolumeControl';
 
 const DinoHeadIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>

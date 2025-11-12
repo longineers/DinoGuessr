@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { useAudio } from '../App';
+import { useAudio } from '../../App';
 
 const SpeakerIcon: React.FC<{ volume: number }> = ({ volume }) => {
   if (volume === 0) {

@@ -6,7 +6,7 @@ import dinosaurs from '../assets/dinosaurs.json';
 
 describe('Asset Verification', () => {
   it('should have a corresponding image file for every dinosaur in dinosaurs.json', () => {
-    const assetsDir = path.resolve(__dirname, '../assets');
+    const assetsDir = path.resolve(__dirname, '../../public/assets');
     const assetFiles = fs.readdirSync(assetsDir);
 
     dinosaurs.forEach(dino => {

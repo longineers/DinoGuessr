@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LoadingSpinner from './LoadingSpinner';
-import { Difficulty } from '../types';
+import { Difficulty } from '../../types';
 
 interface ImageRevealerProps {
   imageUrl: string;

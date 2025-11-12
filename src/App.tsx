@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback, createContext, useContext, useRef } from 'react';
 import { fetchDinosaurQuiz } from './services/dataService';
 import { QuizData, Difficulty } from './types';
-import StartScreen from './components/StartScreen';
-import GameScreen from './components/GameScreen';
-import EndScreen from './components/EndScreen';
-import LoadingSpinner from './components/LoadingSpinner';
-import VolumeControl from './components/VolumeControl';
+import StartScreen from './components/screens/StartScreen';
+import GameScreen from './components/screens/GameScreen';
+import EndScreen from './components/screens/EndScreen';
+import LoadingSpinner from './components/common/LoadingSpinner';
+import VolumeControl from './components/common/VolumeControl';
 
 // --- Audio Context and Provider ---
 type SoundType = 'start' | 'transition' | 'correct' | 'incorrect';

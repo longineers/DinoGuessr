@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { DinosaurQuestion, Difficulty } from '../types';
-import ImageRevealer from './ImageRevealer';
-import HintBox from './HintBox';
-import { useAudio } from '../App';
-import VolumeControl from './VolumeControl';
+import { DinosaurQuestion, Difficulty } from '../../types';
+import ImageRevealer from '../common/ImageRevealer';
+import HintBox from '../common/HintBox';
+import { useAudio } from '../../App';
+import VolumeControl from '../common/VolumeControl';
 
 interface GameScreenProps {
   question: DinosaurQuestion;

@@ -23,13 +23,13 @@ DinoGuessr is a web-based dinosaur guessing game designed to test your knowledge
 ## Game Screenshots
 
 ### Main Screen
-![Main Screen](/assets/screenshots/MainScreen.png)
+![Main Screen](src/assets/screenshots/MainScreen.png)
 
 ### Play Screen
-![Play Screen](/assets/screenshots/PlayScreen.png)
+![Play Screen](src/assets/screenshots/PlayScreen.png)
 
 ### Final Screen
-![Final Screen](/assets/screenshots/FinalScreen.png)
+![Final Screen](src/assets/screenshots/FinalScreen.png)
 
 ## Main Technologies
 
@@ -38,13 +38,16 @@ DinoGuessr is a web-based dinosaur guessing game designed to test your knowledge
 
 ## Architecture
 
-The application is structured into several components:
+The application's source code is located in the `src/` directory and is structured into several components:
 
--   `App.tsx`: The main component that manages the game state (start, loading, playing, finished), score, and rounds.
--   `components/`: This directory contains the individual React components for different parts of the game, such as the start screen, game screen, and end screen.
--   `services/dataService.ts`: This service is responsible for generating the quiz data locally.
--   `types.ts`: This file defines the TypeScript types used throughout the application.
--   `assets/dinosaurs.json`: A centralized JSON file that contains the list of dinosaurs, making it easy to add new dinosaurs to the game.
+-   `src/App.tsx`: The main component that manages the game state (start, loading, playing, finished), score, and rounds.
+-   `src/components/`: This directory contains the individual React components for different parts of the game.
+    -   `src/components/screens/`: Contains top-level screen components like `StartScreen`, `GameScreen`, and `EndScreen`.
+    -   `src/components/common/`: Contains reusable, generic UI components like `LoadingSpinner` and `VolumeControl`.
+-   `src/services/dataService.ts`: This service is responsible for generating the quiz data locally.
+-   `src/types.ts`: This file defines the TypeScript types used throughout the application.
+-   `src/assets/dinosaurs.json`: A centralized JSON file that contains the list of dinosaurs, making it easy to add new dinosaurs to the game.
+-   `public/`: This directory contains static assets that are served directly to the browser, such as `manifest.json`, `service-worker.js`, and the dinosaur images in `public/assets`.
 
 ## Building and Running
 
@@ -86,8 +89,8 @@ The application can be run using Docker.
 
 Adding new dinosaurs to the game is a straightforward process:
 
-1.  **Add the dinosaur to `assets/dinosaurs.json`:**
-    Open the `assets/dinosaurs.json` file and add a new entry for the dinosaur, following the existing format:
+1.  **Add the dinosaur to `src/assets/dinosaurs.json`:**
+    Open the `src/assets/dinosaurs.json` file and add a new entry for the dinosaur, following the existing format:
 
     ```json
     {
@@ -97,12 +100,12 @@ Adding new dinosaurs to the game is a straightforward process:
     ```
 
 2.  **Add the dinosaur's image:**
-    Add a corresponding image for the new dinosaur to the `assets` directory. The image name should match the `name` property in the `dinosaurs.json` file.
+    Add a corresponding image for the new dinosaur to the `public/assets` directory. The image name should match the `name` property in the `dinosaurs.json` file.
 
-    If you need help finding and downloading images, you can use the `download-images.mjs` script:
+    If you need help finding and downloading images, you can use the `scripts/download-images.mjs` script:
 
     ```bash
-    node download-images.mjs
+    node scripts/download-images.mjs
     ```
 
     This script will generate a list of search URLs for each dinosaur, making it easier to find and download the images you need.
@@ -121,4 +124,4 @@ To run the unit tests for the application, use the following command:
 npm test
 ```
 
-This will execute all tests located in the `services/` directory and provide a summary of the results.
+This will execute all tests located within the `src/services/` directory (and other `src` subdirectories if more tests are added) and provide a summary of the results.
